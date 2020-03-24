@@ -1,17 +1,20 @@
 // add inquirer
 
-var inquirer = require("inquirer");
+const inquirer = require("inquirer");
+const fs = require("fs");
+const util = require("util");
+const markdown = require("./utils/generateMarkdown");
+const api = require("./utils/api")
 
-// const questions = [
+// promisify file writing - makes it easier to write out
 
-// ];
+const writeFileAsync = util.promisify(fs.writeFile);
 
 
-// need to use try, catch, await
+// answers don't get stored in here yet
 function promptUser() {
-    inquirer
-    .prompt([
-        {
+    return inquirer.prompt([
+    {
         type: "input",
         message: "What is your Github username?",
         name: "username"
@@ -22,19 +25,28 @@ function promptUser() {
         name: "projectName"
         },
     ])
-    .then(function(response) {
-
-        console.log(response);
-        return response
-    });
 }
 
-function writeToFile(fileName, data) {
-}
 
-function init() {
-    promptUser()
-    // console.log(response)
-}
 
+async function init() {
+    try {
+        const answers = await promptUser();
+        
+        // api call to Github
+        // generate markdown 
+        const test = JSON.stringify(answers);
+    
+        await writeFileAsync("test.html", test);
+    
+        console.log("Successfully wrote to test.html");
+    } catch(err) {
+        console.log(err);
+    }
+}
+    
 init();
+   
+
+
+
