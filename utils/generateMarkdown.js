@@ -1,9 +1,7 @@
 function generateMarkdown(data) {
   return `
   #${data.projectName}
-
-  <!-- project title should be a variable within a template literal -->
-  
+ 
   [![${data.label}-${data.message}](https://img.shields.io/badge/${data.label}-${data.message}-${data.color})](${data.url})
   
   ***
@@ -74,5 +72,29 @@ function generateMarkdown(data) {
   
 }
 
-module.exports = generateMarkdown;
+// review syntax for this
+module.exports = {
+  generateMarkdown:generateMarkdown
+}
 
+// testObject = {
+//  projectName: "Test",
+
+//   label: "testing",
+//   message: "Markdown",
+//   color: "green",
+//   url: "https://www.google.com",
+//   description: "testing for markdown",
+//   installation: "something something lorem",
+//   projectYear: "2019",
+//   name: "Alex lorem",
+//   license: "lorem", 
+//   contributing: "don't bother!",
+//   tests: "none!",
+//   email: "nobody@nowhere.com",
+//   avatar:"",
+//   acknowledgement:"nobody"
+  
+// }
+
+// console.log(generateMarkdown(testObject))
