@@ -11,7 +11,7 @@ const api = require("./utils/api")
 const writeFileAsync = util.promisify(fs.writeFile);
 
 
-// answers don't get stored in here yet
+// move this to a separate js file
 function promptUser() {
     return inquirer.prompt([
         {
@@ -131,14 +131,17 @@ function promptUser() {
 async function init() {
     try {
         const answers = await promptUser();
-        
-        // api call to Github
+        console.log(answers)        
+        const apiCall = await api.getUser(answers.username);
+        console.log(apiCall)
+        // how can apiCall and inquirer answers be combined into one response?
+
         // generate markdown 
-        const test = JSON.stringify(answers);
+        const markdown = markdown.generateMarkdown(JSON.stringify(answers));
     
-        await writeFileAsync("test.html", test);
+        await writeFileAsync("README.md", markdown);
     
-        console.log("Successfully wrote to test.html");
+        console.log("Successfully wrote to README.md");
     } catch(err) {
         console.log(err);
     }
