@@ -19,6 +19,11 @@ function promptUser() {
         },
         {
         type: "input",
+        message: "Please provide a description for your project",
+        name: "description"
+        },
+        {
+        type: "input",
         message: "What year is this project being released?",
         name: "projectYear"
         },
@@ -115,6 +120,6 @@ function promptUser() {
 }
 
 module.exports = {
-    promptUser:promptUser
-  }
+    promptUser
+}
   

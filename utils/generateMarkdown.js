@@ -1,14 +1,14 @@
-function generateMarkdown(data) {
+function generateMarkdown(combinedData) {
   return `
-  #${data.projectName}
+  # ${combinedData.projectName}
  
-  [![${data.label}-${data.message}](https://img.shields.io/badge/${data.label}-${data.message}-${data.color})](${data.url})
+  ![${combinedData.label}-${combinedData.message}](https://img.shields.io/badge/${combinedData.label}-${combinedData.message}-${combinedData.color})
   
   ***
   
   ## Description
   
-  ${data.description}
+  ${combinedData.description}
   
   ***
   
@@ -28,46 +28,46 @@ function generateMarkdown(data) {
   
   ## Installation
   
-  ${data.installation}
+  ${combinedData.installation}
   
   ***
   
   ## Usage
   
-  ${data.usage}
+  ${combinedData.usage}
   
   ***
   
   ## License
   
-  Copyright (c) ${data.projectYear} ${data.name}.
-  Released under ${data.license}. See the LICENSE.MD for more details.
+  Copyright (c) ${combinedData.projectYear} ${combinedData.name}.
+  Released under ${combinedData.license}. See the LICENSE file for more details.
   
   ***
   
   ## Contributing
   
- ${data.contributing}
+  ${combinedData.contributing}
   
   ***
   
   ## Tests
   
-  ${data.tests}
+  ${combinedData.tests}
   
   ***
   
   ## Questions
   
-  For any questions, please contact the owner at ${data.email}
+  For any questions, please contact the owner at ${combinedData.email}
 
-  ${data.avatar}
+  ${combinedData.avatar}
   
   ***
   
   ## Acknowledgements
   
-  ${data.acknowledgement}
+  ${combinedData.acknowledgement}
   `
   
 }
@@ -76,25 +76,3 @@ function generateMarkdown(data) {
 module.exports = {
   generateMarkdown:generateMarkdown
 }
-
-// testObject = {
-//  projectName: "Test",
-
-//   label: "testing",
-//   message: "Markdown",
-//   color: "green",
-//   url: "https://www.google.com",
-//   description: "testing for markdown",
-//   installation: "something something lorem",
-//   projectYear: "2019",
-//   name: "Alex lorem",
-//   license: "lorem", 
-//   contributing: "don't bother!",
-//   tests: "none!",
-//   email: "nobody@nowhere.com",
-//   avatar:"",
-//   acknowledgement:"nobody"
-  
-// }
-
-// console.log(generateMarkdown(testObject))
