@@ -1,5 +1,3 @@
-// add inquirer
-
 const fs = require("fs");
 const util = require("util");
 const questions = require("./utils/inquirer-questions")
@@ -10,23 +8,26 @@ const markdown = require("./utils/generateMarkdown");
 
 const writeFileAsync = util.promisify(fs.writeFile);
 
-
 async function init() {
     try {
+        // prompting user for data
         const data = await questions.promptUser();
-        console.log(answers)        
+       
+        // pulling data from api 
         const apiCall = await api.getUser(data.username);
-        console.log(apiCall)
-        // how can apiCall and inquirer answers be combined into one response?
+       
+       // combining both arrays into one array using a spread operator
+        const combinedData = {...data,...apiCall};
 
-        // generate markdown 
-        const readme = markdown.generateMarkdown(JSON.stringify(data));
+        // using combined array to fill out readme
+        const readme = markdown.generateMarkdown(combinedData);
     
-        await writeFileAsync("README.md", readme);
-    
-        console.log("Successfully wrote to README.md");
+        await writeFileAsync("READMETEST.md", readme);
+        
     } catch(err) {
         console.log(err);
+    } finally {
+        console.log("Successfully wrote to README.md");
     }
 }
     
