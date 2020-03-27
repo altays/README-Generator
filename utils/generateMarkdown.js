@@ -2,7 +2,7 @@ function generateMarkdown(combinedData) {
   return `
   # ${combinedData.projectName}
  
-  [![${combinedData.label}-${combinedData.message}](https://img.shields.io/badge/${combinedData.label}-${combinedData.message}-${combinedData.color})](${combinedData.url})
+  ![${combinedData.label}-${combinedData.message}](https://img.shields.io/badge/${combinedData.label}-${combinedData.message}-${combinedData.color})
   
   ***
   
@@ -41,7 +41,7 @@ function generateMarkdown(combinedData) {
   ## License
   
   Copyright (c) ${combinedData.projectYear} ${combinedData.name}.
-  Released under ${combinedData.license}. See the LICENSE.MD for more details.
+  Released under ${combinedData.license}. See the LICENSE file for more details.
   
   ***
   
@@ -76,25 +76,3 @@ function generateMarkdown(combinedData) {
 module.exports = {
   generateMarkdown:generateMarkdown
 }
-
-testObject = {
- projectName: "Test",
-
-  label: "testing",
-  message: "Markdown",
-  color: "green",
-  url: "https://www.google.com",
-  description: "testing for markdown",
-  installation: "something something lorem",
-  projectYear: "2019",
-  name: "Alex lorem",
-  license: "lorem", 
-  contributing: "don't bother!",
-  tests: "none!",
-  email: "nobody@nowhere.com",
-  avatar:"",
-  acknowledgement:"nobody"
-  
-}
-
-// console.log(generateMarkdown(testObject))
