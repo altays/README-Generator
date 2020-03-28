@@ -27,7 +27,7 @@ async function init() {
     } catch(err) {
         console.log(err);
     } finally {
-        console.log("Successfully wrote to README.md");
+        console.log("Successfully wrote to READMETEST.md");
     }
 }
     
