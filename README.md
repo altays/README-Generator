@@ -21,7 +21,7 @@
   5. [Tests](#Tests)
   6. [Questions](#Questions)
   7. [Acknowledgements](#Acknowledgements)
-  
+  8. [Issues](#Issues)
   
   ***
   
@@ -64,5 +64,13 @@
   
   ## Acknowledgements
   
-  Chad David Cover, for providing insight on fixing the API call in axios and combining the objects returned from the API call and Inquirer questions, 
+  Chad David Cover, for providing insight on fixing the API call in axios and combining the objects returned from the API call and Inquirer questions
+  
+  Kenneth de Guzman, for collaborating on the api call to Github for sorting through events to find the Push Events that provide user email and avatar.
+  
+  ***
+  
+  ## Issues
+  
+  Due to the nature of the API call, the requested user needs to have commits made within the past 30 events for the information to show.
   
