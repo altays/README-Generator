@@ -1,8 +1,8 @@
 function generateMarkdown(combinedData) {
   return `
-  # ${combinedData.projectName}
+  # ${combinedData.projectName.trim()}
  
-  ![${combinedData.label}-${combinedData.message}](https://img.shields.io/badge/${combinedData.label}-${combinedData.message}-${combinedData.color})
+  [!${combinedData.label.trim()}-${combinedData.message.trim()}](https://img.shields.io/badge/${combinedData.label.trim()}-${combinedData.message.trim()}-${combinedData.color})
   
   ***
   
@@ -40,7 +40,7 @@ function generateMarkdown(combinedData) {
   
   ## License
   
-  Copyright (c) ${combinedData.projectYear} ${combinedData.name}.
+  Copyright (c) ${combinedData.projectYear.trim()} ${combinedData.name.trim()}.
   Released under ${combinedData.license}. See the LICENSE file for more details.
   
   ***
@@ -61,7 +61,7 @@ function generateMarkdown(combinedData) {
   
   For any questions, please contact the owner at ${combinedData.email}
 
-  ${combinedData.avatar}
+  ![](${combinedData.avatar}&s=200)
   
   ***
   
